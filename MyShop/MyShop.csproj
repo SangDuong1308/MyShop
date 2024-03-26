@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\Images\ArchLogo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -53,8 +54,13 @@
     <None Remove="Assets\Images\logo.png" />
     <None Remove="Assets\Images\main-bg.png" />
     <None Remove="Assets\Images\minimize-icon.png" />
+    <None Remove="Assets\Images\Paperbacks.png" />
     <None Remove="Assets\Images\placeholder.png" />
     <None Remove="Assets\Images\user-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Images\ArchLogo.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -63,14 +69,17 @@
     <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
     <PackageReference Include="LiveCharts.Wpf.NetCore3" Version="0.9.8" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
     <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Assets\Sheets\" />
-    <Folder Include="DTO\" />
     <Folder Include="BUS\" />
-    <Folder Include="CustomControls\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -118,8 +127,24 @@
     <Resource Include="Assets\Images\logo.png" />
     <Resource Include="Assets\Images\main-bg.png" />
     <Resource Include="Assets\Images\minimize-icon.png" />
+    <Resource Include="Assets\Images\Paperbacks.png" />
     <Resource Include="Assets\Images\placeholder.png" />
     <Resource Include="Assets\Images\user-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

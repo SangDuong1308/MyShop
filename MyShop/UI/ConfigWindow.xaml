@@ -16,27 +16,32 @@
 
     <Border CornerRadius="12">
 
-        <Border.Background>
+        <!--<Border.Background>
             <ImageBrush ImageSource="/Assets/Images/back-image.jpg"
                         Stretch="None"/>
-        </Border.Background>
+        </Border.Background>-->
 
         <Border CornerRadius="10"
-                BorderThickness="3"
+                BorderThickness="1"
                 Opacity="0.85">
 
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
-                    <GradientStop Color="{StaticResource winBorderColor1}" Offset="0.75"/>
-                    <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+                    <!--<GradientStop Color="{StaticResource winBorderColor1}" Offset="0.75"/>
+                    <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>-->
+                    <!--<GradientStop Color="#EA9218" Offset="0"/>
+                    <GradientStop Color="#EA9218" Offset="0.75"/>
+                    <GradientStop Color="#EA9218" Offset="1"/>-->
                 </LinearGradientBrush>
             </Border.BorderBrush>
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0.2"/>
+                    <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
                     <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
+                    <GradientStop Color="{StaticResource paperbackcolor1}" Offset="0.2"/>
+                    <GradientStop Color="{StaticResource paperbackcolor2}" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -138,7 +143,7 @@
                 </Grid>
 
                 <Grid  Grid.Row="1">
-                    <TextBlock Text="DATABASE CONFIGURATION"
+                    <TextBlock Text="CONFIGURATION"
                                Foreground="White"
                                FontSize="25"
                                FontWeight="Medium"
@@ -354,7 +359,7 @@
 
                     <Button.Style>
                         <Style TargetType="Button">
-                            <Setter Property="Background" Value="#462AD8"/>
+                            <Setter Property="Background" Value="#301415"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="#28AEED"/>

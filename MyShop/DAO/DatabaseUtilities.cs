@@ -43,6 +43,12 @@ namespace MyShop.DAO
             _user = user;
             _password = password;
 
+            if (string.IsNullOrEmpty(server) || string.IsNullOrEmpty(databaseName) || string.IsNullOrEmpty(user) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please provide values for all connection parameters.");
+                return;
+            }
+
             string connectionString = $"""
                 Server = {server};
                 User ID = {user}; Password={password};
@@ -52,6 +58,7 @@ namespace MyShop.DAO
                 """;
 
             _connection = new SqlConnection(connectionString);
+
 
             try
             {
