@@ -22,5 +22,41 @@ namespace MyShop.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UsernameRemember {
+            get {
+                return ((bool)(this["UsernameRemember"]));
+            }
+            set {
+                this["UsernameRemember"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int IdUser {
+            get {
+                return ((int)(this["IdUser"]));
+            }
+            set {
+                this["IdUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string CurrentPage {
+            get {
+                return ((string)(this["CurrentPage"]));
+            }
+            set {
+                this["CurrentPage"] = value;
+            }
+        }
     }
 }

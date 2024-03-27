@@ -43,34 +43,45 @@ namespace MyShop.DAO
             _user = user;
             _password = password;
 
-            if (string.IsNullOrEmpty(server) || string.IsNullOrEmpty(databaseName) || string.IsNullOrEmpty(user) || string.IsNullOrEmpty(password))
-            {
-                MessageBox.Show("Please provide values for all connection parameters.");
-                return;
-            }
+            //if (string.IsNullOrEmpty(server) || string.IsNullOrEmpty(databaseName) || string.IsNullOrEmpty(user) || string.IsNullOrEmpty(password))
+            //{
+            //    MessageBox.Show("Please provide values for all connection parameters.");
+            //    return;
+            //}
+
+            //string connectionString = $"""
+            //    Server = {server};
+            //    User ID = {user}; Password={password};
+            //    Database = {databaseName};
+            //    TrustServerCertificate=True;
+            //    Trusted_Connection=yes;
+            //    """;
 
             string connectionString = $"""
-                Server = {server};
-                User ID = {user}; Password={password};
-                Database = {databaseName};
+                Server = DESKTOP-6U1V8JA\SQLEXPRESS;
+                User ID = "sa"; Password="123";
+                Database = "MyShop";
                 TrustServerCertificate=True;
                 Trusted_Connection=yes;
                 """;
 
             _connection = new SqlConnection(connectionString);
 
+            // For fast testing
+            _connection.Open();
+            isSelectedDatabase = true;
 
-            try
-            {
-                _connection.Open();
-                isSelectedDatabase = true;
+            //try
+            //{
+            //    _connection.Open();
+            //    isSelectedDatabase = true;
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    $"Cannot connect to database. Reason: {ex.Message}");
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(
+            //        $"Cannot connect to database. Reason: {ex.Message}");
+            //}
 
             _instance = this;
         }

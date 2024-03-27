@@ -43,10 +43,12 @@
     <None Remove="Assets\Images\books\cybeneticsIntro.png" />
     <None Remove="Assets\Images\books\machinelearning.png" />
     <None Remove="Assets\Images\close-icon.png" />
+    <None Remove="Assets\Images\fullname-icon.png" />
     <None Remove="Assets\Images\ic-first.png" />
     <None Remove="Assets\Images\ic-last.png" />
     <None Remove="Assets\Images\ic-next.png" />
     <None Remove="Assets\Images\ic-prev.png" />
+    <None Remove="Assets\Images\info-16.png" />
     <None Remove="Assets\Images\item-bg.jpg" />
     <None Remove="Assets\Images\item1-bg.jpg" />
     <None Remove="Assets\Images\item2-bg.jpg" />
@@ -56,6 +58,7 @@
     <None Remove="Assets\Images\minimize-icon.png" />
     <None Remove="Assets\Images\Paperbacks.png" />
     <None Remove="Assets\Images\placeholder.png" />
+    <None Remove="Assets\Images\user-3-16.png" />
     <None Remove="Assets\Images\user-icon.png" />
   </ItemGroup>
 
@@ -79,7 +82,6 @@
 
   <ItemGroup>
     <Folder Include="Assets\Sheets\" />
-    <Folder Include="BUS\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -116,10 +118,12 @@
     <Resource Include="Assets\Images\books\cybeneticsIntro.png" />
     <Resource Include="Assets\Images\books\machinelearning.png" />
     <Resource Include="Assets\Images\close-icon.png" />
+    <Resource Include="Assets\Images\fullname-icon.png" />
     <Resource Include="Assets\Images\ic-first.png" />
     <Resource Include="Assets\Images\ic-last.png" />
     <Resource Include="Assets\Images\ic-next.png" />
     <Resource Include="Assets\Images\ic-prev.png" />
+    <Resource Include="Assets\Images\info-16.png" />
     <Resource Include="Assets\Images\item-bg.jpg" />
     <Resource Include="Assets\Images\item1-bg.jpg" />
     <Resource Include="Assets\Images\item2-bg.jpg" />
@@ -129,6 +133,7 @@
     <Resource Include="Assets\Images\minimize-icon.png" />
     <Resource Include="Assets\Images\Paperbacks.png" />
     <Resource Include="Assets\Images\placeholder.png" />
+    <Resource Include="Assets\Images\user-3-16.png" />
     <Resource Include="Assets\Images\user-icon.png" />
   </ItemGroup>
 

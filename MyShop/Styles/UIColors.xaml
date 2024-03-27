@@ -8,6 +8,9 @@
     <Color x:Key="secondaryBackColor2">#210F55</Color>
     <Color x:Key="paperbackcolor1">#7B4C1C</Color>
     <Color x:Key="paperbackcolor2">#432D1F</Color>
+
+    <Color x:Key="mainscreen">#311C6F</Color>
+
     <!--Window Border Colors-->
     <Color x:Key="winBorderColor1">#6D2FFF</Color>
     <Color x:Key="winBorderColor2">#FB539B</Color>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyShop.BUS;
+using MyShop.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,16 +48,49 @@ namespace MyShop.UI
             string inputUsername = txtUsername.Text;
             string inputPassword = txtPassword.Password;
             //MessageBox.Show($"hehe{inputUsername}, {inputPassword}");
+
+            UserBUS userBus = new UserBUS();
+            UserDTO handleApiUser = userBus.getOne(inputUsername, inputPassword);
+
+            if (handleApiUser != null)
+            {
+                //MessageBox.Show("Nice try lil king");
+                bool remember = RememberMeCheckBox.IsChecked == true;
+                Properties.Settings.Default.IdUser = handleApiUser.UserID;
+                Properties.Settings.Default.Save();
+                if (remember && inputUsername != null)
+                {
+                    Properties.Settings.Default.UsernameRemember = true;
+                    Properties.Settings.Default.Save();
+                }
+                var mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+
+            }
+            else
+            {
+                //MessageBox.Show("Invalid username or password");
+                txtFailLogin.Text = "Invalid username or password";
+            }
+
         }
 
         private void TextBlock_SignUp(object sender, MouseButtonEventArgs e)
         {
-
+            SignupWindow sigupWindow = new SignupWindow();
+            sigupWindow.Show();
+            this.Close();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            if (Properties.Settings.Default.UsernameRemember)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
         }
     }
 }
