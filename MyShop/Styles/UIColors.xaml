@@ -10,7 +10,14 @@
     <Color x:Key="paperbackcolor2">#432D1F</Color>
 
     <Color x:Key="mainscreen">#311C6F</Color>
+    
+    <!--luv2shopcolor-->
+    <Color x:Key="luvScreen">#E5E5E5</Color>
+    <Color x:Key="luvNav">#FFFFFF</Color>
+    <Color x:Key="luvTop">#0DA8E4</Color>
 
+    <Color x:Key="nav">#123563</Color>
+    
     <!--Window Border Colors-->
     <Color x:Key="winBorderColor1">#6D2FFF</Color>
     <Color x:Key="winBorderColor2">#FB539B</Color>

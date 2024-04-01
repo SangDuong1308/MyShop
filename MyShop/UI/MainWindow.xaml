@@ -10,16 +10,17 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="Transparent"
+        Loaded="Window_Loaded"
         AllowsTransparency="True">
 
-    <Border CornerRadius="10"
-         BorderThickness="1"
-         Opacity="0.9">
-        
+    <Border  CornerRadius="10"
+             BorderThickness="1"
+             Opacity="1">
+
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
-                <GradientStop Color="{StaticResource winBorderColor1}" Offset="0.75"/>
+                <!--<GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource winBorderColor1}" Offset="0.75"/>-->
                 <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
             </LinearGradientBrush>
         </Border.BorderBrush>
@@ -27,58 +28,185 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="250"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="943*"/>
+                <ColumnDefinition Width="105*"/>
             </Grid.ColumnDefinitions>
+
+            <!--<Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>-->
 
             <!--Navigation Menu-->
             <Border CornerRadius="10,0,0,10"
                     Grid.Column="0">
-                <Border.Background>
+                <!--<Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.9">
                         <GradientStop Color="{StaticResource paperbackcolor1}" Offset="0.1"/>
-                        <!--<GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0.2"/>-->
+                        -->
+                <!--<GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0.2"/>-->
+                <!--
                         <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="0.7"/>
                         <GradientStop Color="{StaticResource paperbackcolor1}" Offset="1"/>
                     </LinearGradientBrush>
+                </Border.Background>-->
+
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.9">
+                        <GradientStop Color="{StaticResource nav}" Offset="0.1"/>
+                    </LinearGradientBrush>
                 </Border.Background>
-                <StackPanel>
 
-                    <!--Logo-->
-                    <StackPanel Orientation="Horizontal"
-                             Height="35"
-                             Margin="15,25,0,40">
+                <!--<StackPanel>-->
 
-                        <Image Source="/Assets/Images/ArchLogo.png" Height="30"/>
-                        <TextBlock Text="PAPERBACKS"
-                                Foreground="{StaticResource titleColor2}"
-                                FontSize="20"
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <!--Logo-->
+                        <StackPanel Orientation="Horizontal"
+                                    Height="35"
+                                    Margin="40,25,0,40"
+                                    Grid.Row="0">
+
+                            <Image Source="/Assets/Images/ArchLogo.png" Height="30"/>
+                            <TextBlock  Text="PAPERBACKS"
+                                        Foreground="{StaticResource titleColor2}"
+                                        FontSize="20"
+                                        FontFamily="Montserrat"
+                                        FontWeight="Medium"
+                                        VerticalAlignment="Center"
+                                        Margin="10,0,0,0"/>         
+                        </StackPanel>
+
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="100"/>
+                            </Grid.RowDefinitions>
+
+                        <ListView Name="ListOfItems"
+                                  Background="Transparent"
+                                  BorderThickness="0"
+                                  Margin="10, 0, 10 ,0"
+                                  SelectionMode="Single"
+                                  SelectionChanged="ListOfItems_SelectionChanged"
+                                  Loaded="ListOfItems_Loaded">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Name="Item"
+                                            Background="Transparent"
+                                            BorderThickness="0"
+                                            CornerRadius="5"
+                                            Width="140">
+                                        <StackPanel Orientation="Horizontal">
+                                            <fa:IconImage Icon="{Binding FontIcon}" 
+                                                             Width="25" Height="25"
+                                                             Margin="10"
+                                                             Style="{StaticResource menuButtonIcon}">
+                                            </fa:IconImage>
+                                            <TextBlock Text="{Binding ItemName}"
+                                                       VerticalAlignment="Center"
+                                                       Margin="10, 0, 0, 0"
+                                                       FontWeight="Medium"
+                                                       Style="{StaticResource menuButtonText}">
+
+                                            </TextBlock>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <Border BorderThickness="1" Margin="0,5,0,5">
+                                                    <ContentPresenter/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                            
+                        <Button x:Name="btnLogout"
+                                Grid.Row="1" 
+                                BorderThickness="0"
+                                Content="LOG OUT"
+                                Foreground="White"
+                                FontSize="16"
                                 FontFamily="Montserrat"
-                                FontWeight="Medium"
-                                VerticalAlignment="Center"
-                                Margin="10,0,0,0"/>
-                    </StackPanel>
+                                Cursor="Hand"
+                                Grid.Column="2"
+                                Margin="0,20,0,0"
+                                Click="LogoutButton_Click">
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#462AD8"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#28AEED"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="150" Height="40"
+                                            CornerRadius="15"
+                                            Background="{TemplateBinding Background}">          
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+                    </Grid>
+
+                    </Grid>
+
+                    
 
                     <!--Menu Buttons-->
-                    <RadioButton Style="{StaticResource menuButton}"
-                              Tag="{StaticResource color1}"
-                              Command="{Binding ShowHomeViewCommand}">
+
+                    <!--<RadioButton  Style="{StaticResource menuButton}"
+                                  Tag="{StaticResource color1}"
+                                  Command="{Binding ShowHomeViewCommand}"
+                                  Click="dashboard_Click">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}"
-                              Tag="{StaticResource color5}"
-                              IsChecked="True"
-                              Command="{Binding ShowCustomerViewCommand}">
+                    <RadioButton  Style="{StaticResource menuButton}"
+                                  Tag="{StaticResource color5}"
+                                  IsChecked="True"
+                                  Command="{Binding ShowCustomerViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Box" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Stock" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
-                              Tag="{StaticResource color4}"
+                              Tag="{StaticResource color2}"
                               Command="{Binding ShowCustomerViewCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Customers" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton  Style="{StaticResource menuButton}"
+                                  Tag="{StaticResource color4}"
+                                  Command="{Binding ShowCustomerViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Tag" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Categories" Style="{StaticResource menuButtonText}"/>
@@ -90,14 +218,6 @@
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Gift" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Promotion" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}"
-                              Tag="{StaticResource color2}"
-                              Command="{Binding ShowCustomerViewCommand}">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Customers" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
@@ -115,54 +235,35 @@
                             <fa:IconImage Icon="PieChart" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Report" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
-                    </RadioButton>
+                    </RadioButton>-->     
 
-                    <Button Grid.Row="1" 
-                            VerticalAlignment="Center" 
-                            HorizontalAlignment="Center"
-                            Name="LogoutButton"
-                            Width="110"
-                            Height="35"
-                            Style="{StaticResource MyButtonStyle}"
-                            BorderThickness="0.5"
-                            Margin="0,100,0, 10"
-                            BorderBrush="Orange"
-                            Click="LogoutButton_Click">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconImage
-                                Name="Logout"
-                                Width="16"
-                                Height="16"
-                                RenderOptions.BitmapScalingMode="HighQuality"
-                                Icon="SignOut"
-                                Margin="5"
-                                Foreground="#8B4000"/>
-                            <TextBlock FontWeight="Bold"
-                                       Foreground="#8B4000"
-                                       VerticalAlignment="Center">
-                                Đăng xuất
-                            </TextBlock>
-                        </StackPanel>
-                    </Button>
-
-                </StackPanel>
+                <!--</StackPanel>-->
             </Border>
             <!--Main Section-->
             <Border CornerRadius="0,10,10,0"
-                 Grid.Column="1">
-                <Border.Background>
+                    Grid.Column="1" Grid.ColumnSpan="2">
+                <!--<Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <!--<GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>-->
+                        -->
+                <!--<GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>-->
+                <!--
                         <GradientStop Color="{StaticResource paperbackcolor2}" Offset="0"/>
                         <GradientStop Color="{StaticResource paperbackcolor1}" Offset="0.4"/>
                         <GradientStop Color="{StaticResource paperbackcolor2}" Offset="0.9"/>
+                    </LinearGradientBrush>
+                </Border.Background>-->
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="{StaticResource luvScreen}" Offset="0.9"/>
                     </LinearGradientBrush>
                 </Border.Background>
 
                 <!--<Border.Background>
                     <LinearGradientBrush StartPoint="0.3,1.5" EndPoint="0,0">
                         <GradientStop Color="{StaticResource paperbackcolor1}" Offset="0.1"/>
-                        --><!--<GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0.2"/>--><!--
+                        <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0.2"/>
+                
                         <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="0.7"/>
                         <GradientStop Color="{StaticResource paperbackcolor1}" Offset="1"/>
                     </LinearGradientBrush>
@@ -170,22 +271,28 @@
 
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="3"/>
                         <!--Control bar-->
                         <RowDefinition Height="25"/>
                         <!--Header / Caption-->
-                        <RowDefinition Height="35"/>
+                        <!--<RowDefinition Height="35"/>-->
                         <!--Content section / Child views-->
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
+
+                    <ProgressBar Margin="0,0,4,0" Grid.Row="0" x:Name="loadingProgressBar">
+
+                    </ProgressBar>
+
                     <!--Control bar-->
                     <StackPanel x:Name="pnlControlBar"
-                             Grid.Row="0"
-                             Orientation="Horizontal"
-                             FlowDirection="RightToLeft"
-                             Background="Transparent"
-                             Margin="0,0,5,0"
-                             MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
-                             MouseEnter="pnlControlBar_MouseEnter">
+                                 Grid.Row="1"
+                                 Orientation="Horizontal"
+                                 FlowDirection="RightToLeft"
+                                 Background="Transparent"
+                                 Margin="0,0,5,0"
+                                 MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
+                                 MouseEnter="pnlControlBar_MouseEnter">
 
                         <Button x:Name="btnClose"
                              Style="{StaticResource controlButton}"
@@ -213,22 +320,15 @@
 
                     </StackPanel>
 
-                    <!--Header / Caption-->
+                    <Frame Name="pageNavigation" 
+                           NavigationUIVisibility="Hidden"
+                           Grid.Row="2">
 
+                    </Frame>
 
                 </Grid>
             </Border>
-
-            
-                
-
-            </Grid>
-        
-        
-
+        </Grid>
     </Border>
 
-
-    
-    
 </Window>
