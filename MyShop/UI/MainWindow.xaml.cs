@@ -140,7 +140,7 @@ namespace MyShop.UI
 
             if (selectedIndex == Stock)
             {
-                
+                pageNavigation.NavigationService.Navigate(new Home(pageNavigation, loadingProgressBar));
             }
 
             if (selectedIndex == Customers)

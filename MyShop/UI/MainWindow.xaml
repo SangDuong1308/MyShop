@@ -15,13 +15,13 @@
 
     <Border  CornerRadius="10"
              BorderThickness="1"
-             Opacity="1">
+             Opacity="0.90">
 
         <Border.BorderBrush>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <!--<GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
                 <GradientStop Color="{StaticResource winBorderColor1}" Offset="0.75"/>-->
-                <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+                <GradientStop Color="{StaticResource winBorderColor3}" Offset="0.5"/>
             </LinearGradientBrush>
         </Border.BorderBrush>
 
@@ -40,21 +40,27 @@
             <!--Navigation Menu-->
             <Border CornerRadius="10,0,0,10"
                     Grid.Column="0">
+                
                 <!--<Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.9">
-                        <GradientStop Color="{StaticResource paperbackcolor1}" Offset="0.1"/>
-                        -->
-                <!--<GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0.2"/>-->
-                <!--
-                        <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="0.7"/>
-                        <GradientStop Color="{StaticResource paperbackcolor1}" Offset="1"/>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                        <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>-->
 
 
-                <Border.Background>
+                <!--<Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.9">
                         <GradientStop Color="{StaticResource nav}" Offset="0.1"/>
+                    </LinearGradientBrush>
+                </Border.Background>-->
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                        <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
+                        <GradientStop Color="{StaticResource paperbackcolor1}" Offset="0.2"/>
+                        <GradientStop Color="{StaticResource paperbackcolor2}" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
 
@@ -243,35 +249,31 @@
             <Border CornerRadius="0,10,10,0"
                     Grid.Column="1" Grid.ColumnSpan="2">
                 <!--<Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        -->
-                <!--<GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>-->
-                <!--
-                        <GradientStop Color="{StaticResource paperbackcolor2}" Offset="0"/>
-                        <GradientStop Color="{StaticResource paperbackcolor1}" Offset="0.4"/>
-                        <GradientStop Color="{StaticResource paperbackcolor2}" Offset="0.9"/>
+                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                        <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>-->
 
-                <Border.Background>
+                <!--<Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="{StaticResource luvScreen}" Offset="0.9"/>
                     </LinearGradientBrush>
-                </Border.Background>
-
-                <!--<Border.Background>
-                    <LinearGradientBrush StartPoint="0.3,1.5" EndPoint="0,0">
-                        <GradientStop Color="{StaticResource paperbackcolor1}" Offset="0.1"/>
-                        <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0.2"/>
-                
-                        <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="0.7"/>
-                        <GradientStop Color="{StaticResource paperbackcolor1}" Offset="1"/>
-                    </LinearGradientBrush>
                 </Border.Background>-->
+
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                        <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
+                        <GradientStop Color="{StaticResource paperbackcolor1}" Offset="0.2"/>
+                        <GradientStop Color="{StaticResource paperbackcolor2}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
 
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="3"/>
+                        <RowDefinition Height="2"/>
                         <!--Control bar-->
                         <RowDefinition Height="25"/>
                         <!--Header / Caption-->
@@ -280,7 +282,8 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <ProgressBar Margin="0,0,4,0" Grid.Row="0" x:Name="loadingProgressBar">
+                    <ProgressBar Margin="0,0,4,0" Grid.Row="0" Background="Purple"
+                                 BorderBrush="Transparent" x:Name="loadingProgressBar">
 
                     </ProgressBar>
 
@@ -322,8 +325,9 @@
 
                     <Frame Name="pageNavigation" 
                            NavigationUIVisibility="Hidden"
-                           Grid.Row="2">
-
+                           Grid.Column="1"
+                           Grid.RowSpan="3"
+                           Grid.Row="2">        
                     </Frame>
 
                 </Grid>
