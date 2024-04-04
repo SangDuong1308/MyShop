@@ -210,7 +210,7 @@ namespace MyShop.DAO
             {
                 ProductDTO product = new ProductDTO();
                 product.ProId = (int)reader["ProID"];
-                product.ProName = reader["ProName"] == DBNull.Value ? "Lỗi tên sản phẩm" : (string?)reader["ProName"];
+                product.ProName = reader["ProName"] == DBNull.Value ? "Product name error" : (string?)reader["ProName"];
                 product.Des = reader["Des"] == DBNull.Value ? null : (string?)reader["Des"];
                 product.Price = (decimal)reader["Price"];
                 product.ImagePath = reader["ImagePath"] == DBNull.Value ? null : (string?)reader["ImagePath"];
@@ -235,7 +235,7 @@ namespace MyShop.DAO
             {
                 string sql = "select top 5 ProID, ProName, Des," +
                              "Price, ImagePath," +
-                             "CatID, Quantity,  PromoID,PromotionPrice, Block from product where Quantity <= 5 and Quantity > 0 order by Quantity asc";
+                             "CatID, Quantity,  PromoID,PromotionPrice, Block from product where Quantity <= 100 and Quantity > 0 order by Quantity asc";
                 var command = new SqlCommand(sql, db.connection);
 
                 var reader = command.ExecuteReader();
@@ -244,7 +244,7 @@ namespace MyShop.DAO
                 {
                     ProductDTO product = new ProductDTO();
                     product.ProId = (int)reader["ProID"];
-                    product.ProName = reader["ProName"] == DBNull.Value ? "Lỗi tên sản phẩm" : (string?)reader["ProName"];
+                    product.ProName = reader["ProName"] == DBNull.Value ? "Product name error" : (string?)reader["ProName"];
                     product.Des = reader["Des"] == DBNull.Value ? null : (string?)reader["Des"];
                     product.Price = (decimal)reader["Price"];
                     product.ImagePath = reader["ImagePath"] == DBNull.Value ? null : (string?)reader["ImagePath"];

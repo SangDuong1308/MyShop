@@ -93,11 +93,6 @@ namespace MyShop.UI
                     FontIcon = "Tag",
                     ItemName = "Categories"
                 },
-                //new Item()
-                //{
-                //    FontIcon = "Gift",
-                //    ItemName = "Promotion",
-                //},
                 new Item()
                 {
                     FontIcon = "Truck",
@@ -135,7 +130,7 @@ namespace MyShop.UI
         {
             if (selectedIndex == DashBoard)
             {
-                
+                pageNavigation.NavigationService.Navigate(new DashBoard(loadingProgressBar));
             }
 
             if (selectedIndex == Stock)
@@ -145,18 +140,13 @@ namespace MyShop.UI
 
             if (selectedIndex == Customers)
             {
-                
+                pageNavigation.NavigationService.Navigate(new Customer(pageNavigation, loadingProgressBar));
             }
 
             if (selectedIndex == Categories)
             {
                 pageNavigation.NavigationService.Navigate(new Category(pageNavigation, loadingProgressBar));
             }
-
-            //if (selectedIndex == Promotion)
-            //{
-                
-            //}
 
             if (selectedIndex == Orders)
             {
@@ -165,7 +155,7 @@ namespace MyShop.UI
             
             if (selectedIndex == Report)
             {
-                
+                pageNavigation.NavigationService.Navigate(new Report(pageNavigation,loadingProgressBar));
             }
 
             resetBorder();

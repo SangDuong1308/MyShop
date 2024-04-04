@@ -19,7 +19,7 @@ namespace MyShop.DAO
         {
             ObservableCollection<CustomerDTO> list = new ObservableCollection<CustomerDTO>();
 
-            string sql = "select CusID, CusName from customer";
+            string sql = "select CusID, CusName, CusTel, CusAddress from customer";
 
             var command = new SqlCommand(sql, db.connection);
 
@@ -30,6 +30,8 @@ namespace MyShop.DAO
                 CustomerDTO customer = new CustomerDTO();
                 customer.CusID = (int)reader["CusID"];
                 customer.CusName = (string)reader["CusName"];
+                customer.CusTel = (string)reader["CusTel"];
+                customer.CusAddress = (string)reader["CusAddress"];
 
                 list.Add(customer);
             }
@@ -41,11 +43,13 @@ namespace MyShop.DAO
 
         public int insertCustomer(CustomerDTO customer)
         {
-            string sql = "insert into customer(CusName)" +
-                         "values(@CusName)";
+            string sql = "insert into customer(CusName, CusTel, CusAddress)" +
+                         "values(@CusName, @CusTel, @CusAddress)";
             var command = new SqlCommand(sql, db.connection);
 
             command.Parameters.Add("@CusName", SqlDbType.NVarChar).Value = customer.CusName;
+            command.Parameters.Add("@CusTel", SqlDbType.NVarChar).Value = customer.CusTel;
+            command.Parameters.Add("@CusAddress", SqlDbType.NVarChar).Value = customer.CusAddress;
 
             command.ExecuteNonQuery();
 
@@ -116,6 +120,31 @@ namespace MyShop.DAO
 
             reader.Close();
             result = list[0];
+
+            return result;
+        }
+        public Tuple<Boolean, string> delCustomerById(int CusID)
+        {
+            string message = "";
+            bool isSuccess = true;
+            Tuple<Boolean, string> result = new Tuple<bool, string>(isSuccess, message);
+
+            string sql = $"""
+                delete customer 
+                where CusID = {CusID}
+                """;
+
+            var command = new SqlCommand(sql, db.connection);
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                message = ex.Message;
+                isSuccess = false;
+                return new Tuple<bool, string>(isSuccess, message);
+            }
 
             return result;
         }

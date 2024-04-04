@@ -84,7 +84,7 @@ namespace MyShop.UI.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error occur: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"An error occurred while updating data source: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -104,12 +104,18 @@ namespace MyShop.UI.Pages
 
         private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int i = ordersListView.SelectedIndex;
-
-            var order = _orders[i];
-            if (order != null)
+            try
             {
-                //_pageNavigation.NavigationService.Navigate(new OrderDetail(order, _pageNavigation));
+                int i = ordersListView.SelectedIndex;
+                var order = _orders[i];
+                if (order != null)
+                {
+                    _pageNavigation.NavigationService.Navigate(new OrderDetail(order, _pageNavigation));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading order details: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

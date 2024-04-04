@@ -34,5 +34,10 @@ namespace MyShop.BUS
         {
             return _customerDAO.getCustomerById(cusID);
         }
+
+        public Tuple<Boolean, string> delCustomerById(int CusID)
+        {
+            return _customerDAO.delCustomerById(CusID);
+        }
     }
 }

@@ -1,0 +1,189 @@
+﻿<Page x:Class="MyShop.UI.Pages.Report"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:MyShop.UI.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:converter="clr-namespace:MyShop.Converters"
+      Title="Report">
+
+    <Page.Resources>
+        <converter:CurrencyConverter x:Key="currencyConverter" />
+        <converter:PromotionConverter x:Key="promotionConverter" />
+        <converter:RelativeToAbsoluteConverter x:Key="converter" />
+    </Page.Resources>
+
+    <Grid Name="MainContainer">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition />
+            <RowDefinition Height="58" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="962*" />
+            <ColumnDefinition Width="20*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="SearchContainer"
+              Margin="0,0,30,0"
+              Grid.Column="1"
+              HorizontalAlignment="Left"
+              Width="450"
+              Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Bottom">
+                <TextBlock Margin="10"
+                           Text="From"
+                           FontSize="15"
+                           FontWeight="Bold"
+                           Foreground="WhiteSmoke" />
+                <DatePicker Name="StartDate"
+                            Margin="0,0,0, 5"
+                            VerticalAlignment="Bottom"
+                            FirstDayOfWeek="Monday"
+                            SelectedDateFormat="Short"
+                            DisplayDateStart="1/04/23"></DatePicker>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Bottom">
+                <TextBlock Margin="10"
+                           Text="  To"
+                           FontSize="15"
+                           FontWeight="Bold"
+                           Foreground="WhiteSmoke" />
+                <DatePicker Name="EndDate"
+                            Margin="0,0,0, 5"
+                            VerticalAlignment="Bottom"
+                            FirstDayOfWeek="Monday"
+                            SelectedDateFormat="Short"
+                            DisplayDateStart="1/04/23"></DatePicker>
+            </StackPanel>
+
+            <Button Name="Search"
+                    Grid.Column="2"
+                    Width="35"
+                    Height="32"
+                    Style="{StaticResource syncbutton}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Click="Search_Click"
+                    Margin="0,0,0, 3">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Width="15"
+                                  Height="15"
+                                  RenderOptions.BitmapScalingMode="HighQuality"
+                                  Icon="Search"
+                                  Foreground="White" />
+                </StackPanel>
+            </Button>
+        </Grid>
+
+        <Border HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Grid.Column="1"
+                Height="30"
+                Width="120"
+                Margin="0,0,150,3"
+                CornerRadius="10"
+                Background="WhiteSmoke">
+            <ComboBox Name="YearCombobox"
+                      BorderThickness="0"
+                      BorderBrush="Transparent"
+                      Width="90"
+                      VerticalContentAlignment="Center"
+                      SelectionChanged="YearCombobox_SelectionChanged">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+                <ComboBoxItem IsHitTestVisible="False"
+                              IsEnabled="False"
+                              IsSelected="True">Year</ComboBoxItem>
+                <ComboBoxItem>2023</ComboBoxItem>
+                <ComboBoxItem>2024</ComboBoxItem>
+            </ComboBox>
+        </Border>
+
+        <Border HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Grid.Column="1"
+                Height="30"
+                Width="120"
+                Margin="0,0,10,3"
+                CornerRadius="10"
+                Background="WhiteSmoke">
+            <ComboBox IsEnabled="False"
+                      Name="MonthCombobox"
+                      BorderThickness="0"
+                      BorderBrush="Transparent"
+                      Width="90"
+                      VerticalContentAlignment="Center"
+                      SelectionChanged="MonthCombobox_SelectionChanged">
+                <ComboBox.ItemContainerStyle>
+                    <Style TargetType="ComboBoxItem">
+
+                    </Style>
+                </ComboBox.ItemContainerStyle>
+                <ComboBoxItem IsHitTestVisible="False"
+                              IsEnabled="False"
+                              IsSelected="True">Month</ComboBoxItem>
+                <ComboBoxItem>January</ComboBoxItem>
+                <ComboBoxItem>February</ComboBoxItem>
+                <ComboBoxItem>March</ComboBoxItem>
+                <ComboBoxItem>April</ComboBoxItem>
+                <ComboBoxItem>May</ComboBoxItem>
+                <ComboBoxItem>June</ComboBoxItem>
+                <ComboBoxItem>July</ComboBoxItem>
+                <ComboBoxItem>August</ComboBoxItem>
+                <ComboBoxItem>September</ComboBoxItem>
+                <ComboBoxItem>October</ComboBoxItem>
+                <ComboBoxItem>November</ComboBoxItem>
+                <ComboBoxItem>December</ComboBoxItem>
+            </ComboBox>
+        </Border>
+
+        <Grid Grid.Row="1"
+              Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Name="Title"
+                       Grid.Column="1"
+                       Text="Revenue by year"
+                       Margin="20, 0,0 ,0"
+                       Foreground="WhiteSmoke"
+                       VerticalAlignment="Center"
+                       FontSize="16"
+                       FontWeight="Regular"
+                       FontFamily="Montserrat">
+            </TextBlock>
+            <Border Background="#60ffffff"
+                    Margin="10"
+                    Grid.Row="1"
+                    CornerRadius="15">
+                <lvc:CartesianChart Name="chart"
+                                    LegendLocation="Bottom"
+                                    Margin="10" />
+            </Border>
+        </Grid>
+    </Grid>
+
+</Page>

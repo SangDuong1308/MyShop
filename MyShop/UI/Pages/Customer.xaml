@@ -1,0 +1,351 @@
+﻿<Page x:Class="MyShop.UI.Pages.Customer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:MyShop.UI.Pages"
+      mc:Ignorable="d"
+      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+      xmlns:converter="clr-namespace:MyShop.Converters"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="Customer"
+      Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <converter:CurrencyConverter x:Key="currencyConverter" />
+        <converter:PromotionConverter x:Key="promotionConverter" />
+        <converter:RelativeToAbsoluteConverter x:Key="converter" />
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Customers"
+                   Margin="30,0,0,10"
+                   Foreground="WhiteSmoke"
+                   VerticalAlignment="Center"
+                   FontSize="25"
+                   FontWeight="Bold"
+                   FontFamily="Montserrat">
+        </TextBlock>
+
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                Background="#60ffffff"
+                Margin="30,10,20,0"
+                CornerRadius="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.18*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.15*" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Customer name"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               Margin="30,0,0,0"
+                               FontWeight="Bold"
+                               Foreground="WhiteSmoke" />
+                    <TextBlock Grid.Column="1"
+                               Text="Customer Telephone"
+                               FontFamily="Montserrat"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               Foreground="WhiteSmoke" />
+
+                    <TextBlock Grid.Column="2"
+                               Text="Customer address"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               FontWeight="Bold"
+                               Foreground="WhiteSmoke" />
+                </Grid>
+
+                <ListView Name="categoriesListView"
+                          BorderThickness="0"
+                          Grid.Row="1"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="2"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          Background="Transparent">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="700"
+                                  Height="35">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.2*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0"
+                                           Margin="10, 0, 0, 0"
+                                           Text="{Binding CusID}"
+                                           FontWeight="Medium"
+                                           Foreground="Black"
+                                           FontSize="15"
+                                           VerticalAlignment="Center" />
+
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding CusName}"
+                                           Margin="40,0,0,0"
+                                           FontSize="15"
+                                           FontWeight="Medium"
+                                           Foreground="#353935"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center" />
+                                <TextBlock Grid.Column="2"
+                                           Text="{Binding CusTel}"
+                                           Margin="40,0,0,0"
+                                           FontWeight="Medium"
+                                           FontSize="15"
+                                           Foreground="#353935"
+                                           HorizontalAlignment="Right"
+                                           VerticalAlignment="Center" />
+
+                                <TextBlock Grid.Column="3"
+                                           Margin="0, 0, -55, 0"
+                                           Text="{Binding CusAddress}"
+                                           TextWrapping="Wrap"
+                                           FontWeight="Medium"
+                                           FontSize="15"
+                                           FontFamily="Montserrat"
+                                           HorizontalAlignment="Right"
+                                           VerticalAlignment="Center"
+                                           Foreground="#353935" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2"
+                Grid.Column="1"
+                Background="#60ffffff"
+                Margin="30,10,20,0"
+                CornerRadius="10">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="0, 10, 0, 10"
+                            Orientation="Vertical">
+                    <TextBlock Margin="50,0,0,0"
+                               Text="Customer Name"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               Foreground="WhiteSmoke" />
+                    <Border BorderThickness="0.5"
+                            BorderBrush="Orange"
+                            CornerRadius="5"
+                            Grid.Column="0"
+                            Background="White"
+                            Height="30"
+                            Width="160"
+                            Margin="10">
+                        <Grid Width="150"
+                              Margin="0"
+                              HorizontalAlignment="Center">
+                            <TextBox BorderThickness="0"
+                                     VerticalContentAlignment="Center"
+                                     FontSize="13"
+                                     Width="150"
+                                     x:Name="NameTermTextBox">
+                            </TextBox>
+                            <TextBlock IsHitTestVisible="False"
+                                       Text="Input customer name"
+                                       VerticalAlignment="Center"
+                                       FontSize="13"
+                                       HorizontalAlignment="Left"
+                                       Margin="5,0,0,0"
+                                       Foreground="DarkGray">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Visibility"
+                                                Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=NameTermTextBox}"
+                                                         Value="">
+                                                <Setter Property="Visibility"
+                                                        Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Margin="0, 10, 0, 10"
+                            Orientation="Vertical">
+                    <TextBlock Margin="50,0,0,0"
+                               Text="Customer telephone"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               Foreground="WhiteSmoke" />
+                    <Border CornerRadius="5"
+                            Grid.Column="0"
+                            Background="White"
+                            Height="30"
+                            Width="160"
+                            Margin="10">
+                        <Grid Width="150"
+                              Margin="0"
+                              HorizontalAlignment="Center">
+                            <TextBox BorderThickness="0"
+                                     VerticalContentAlignment="Center"
+                                     FontSize="13"
+                                     Width="150"
+                                     x:Name="TelTermTextBox">
+                            </TextBox>
+                            <TextBlock IsHitTestVisible="False"
+                                       Text="Input customer tel"
+                                       VerticalAlignment="Center"
+                                       FontSize="13"
+                                       HorizontalAlignment="Left"
+                                       Margin="5,0,0,0"
+                                       Foreground="DarkGray">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Visibility"
+                                                Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TelTermTextBox}"
+                                                         Value="">
+                                                <Setter Property="Visibility"
+                                                        Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2"
+                            Margin="0, 10, 0, 0"
+                            Orientation="Vertical">
+                    <TextBlock Margin="25,0,0,0"
+                               Text="Customer Address"
+                               FontSize="15"
+                               FontWeight="Medium"
+                               Foreground="WhiteSmoke" />
+                    <Border BorderThickness="0.5"
+                            CornerRadius="5"
+                            Grid.Column="0"
+                            Background="White"
+                            Margin="-100,10,0,0"
+                            Height="80"
+                            Width="350">
+                        <Grid Width="340"
+                              Height="80"
+                              Margin="0">
+                            <TextBox BorderThickness="0"
+                                     VerticalContentAlignment="Top"
+                                     HorizontalContentAlignment="Left"
+                                     FontSize="13"
+                                     Height="70"
+                                     TextAlignment="Left"
+                                     TextWrapping="Wrap"
+                                     Width="340"
+                                     x:Name="AddTermTextBox">
+                            </TextBox>
+                            <TextBlock IsHitTestVisible="False"
+                                       Text="Input customer address"
+                                       VerticalAlignment="Top"
+                                       FontSize="13"
+                                       Margin="4,4,0,0"
+                                       HorizontalAlignment="Left"
+                                       Foreground="DarkGray">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Visibility"
+                                                Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=AddTermTextBox}"
+                                                         Value="">
+                                                <Setter Property="Visibility"
+                                                        Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+        </Border>
+
+        <Button Name="SaveCustomer"
+                Grid.Row="3"
+                Width="120"
+                Height="35"
+                Style="{StaticResource syncbutton}"
+                HorizontalAlignment="Right"
+                Margin="0,0,20,0"
+                Click="SaveCategory_Click">
+            <StackPanel Orientation="Horizontal">
+                <fa:IconImage Width="11"
+                              Height="11"
+                              Margin="0, 0, 8, 0"
+                              RenderOptions.BitmapScalingMode="HighQuality"
+                              Icon="Save"
+                              Foreground="WhiteSmoke" />
+                <TextBlock Foreground="WhiteSmoke">Save</TextBlock>
+            </StackPanel>
+        </Button>
+
+
+        <Button Name="DelCustomer"
+                Grid.Row="3"
+                Width="120"
+                Height="35"
+                Style="{StaticResource syncbutton}"
+                HorizontalAlignment="Right"
+                Margin="0,0,160,0"
+                Click="DelCategory_Click">
+            <StackPanel Orientation="Horizontal">
+                <fa:IconImage Width="11"
+                              Height="11"
+                              Margin="0, 0, 8, 0"
+                              RenderOptions.BitmapScalingMode="HighQuality"
+                              Icon="TrashAlt"
+                              Foreground="WhiteSmoke" />
+                <TextBlock Foreground="WhiteSmoke">Remove</TextBlock>
+            </StackPanel>
+        </Button>
+    </Grid>
+
+</Page>

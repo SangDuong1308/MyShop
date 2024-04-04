@@ -13,7 +13,6 @@ namespace MyShop.BUS
 {
     public class ReportBUS
     {
-        // Nói chung là sẽ get all còn phân tích thế nào thì chưa biết :)
         private List<ShopOrderDTO> _orders;
         private OrderBUS _orderBUS;
         private OrderDAO _orderDAO;
@@ -24,8 +23,6 @@ namespace MyShop.BUS
             _orderBUS = orderBUS;
             _orderDAO = orderDAO;
         }
-
-        // Đã có dữ liệu rồi phân tích dữ liệu nào  :) 
 
         private async Task<List<ShopOrderDTO>> getData()
         {
@@ -46,7 +43,6 @@ namespace MyShop.BUS
                 {
                     if (order.CreateAt.Month == month && order.CreateAt.Year == year)
                     {
-                        // này nguy hiểm :))) nhưng kệ 
                         prices.Add((decimal)order.FinalTotal);
                     }
                 }
@@ -120,7 +116,7 @@ namespace MyShop.BUS
             DateTime lastDayOfMonth = new DateTime(year, month, daysInMonth);
             int weekCount = (int)Math.Ceiling((double)daysInMonth / 7);
 
-            for (int week = 1; week <= 5; week++) // loop over 5 weeks only
+            for (int week = 1; week <= 5; week++)
             {
                 decimal totalPrice = 0;
                 DateTime startDate = firstDayOfMonth.AddDays((week - 1) * 7);
@@ -136,9 +132,9 @@ namespace MyShop.BUS
 
                 result.Add(totalPrice);
 
-                if (weekCount < 5 && week == weekCount) // if there are less than 5 weeks in the month
+                if (weekCount < 5 && week == weekCount)
                 {
-                    for (int i = week + 1; i <= 5; i++) // add 0 to the remaining weeks
+                    for (int i = week + 1; i <= 5; i++)
                     {
                         result.Add(0);
                     }
@@ -157,7 +153,7 @@ namespace MyShop.BUS
             DateTime lastDayOfMonth = new DateTime(year, month, daysInMonth);
             int weekCount = (int)Math.Ceiling((double)daysInMonth / 7);
 
-            for (int week = 1; week <= 5; week++) // loop over 5 weeks only
+            for (int week = 1; week <= 5; week++)
             {
                 int quantity = 0;
                 DateTime startDate = firstDayOfMonth.AddDays((week - 1) * 7);
@@ -180,9 +176,9 @@ namespace MyShop.BUS
 
                 result.Add(quantity);
 
-                if (weekCount < 5 && week == weekCount) // if there are less than 5 weeks in the month
+                if (weekCount < 5 && week == weekCount)
                 {
-                    for (int i = week + 1; i <= 5; i++) // add 0 to the remaining weeks
+                    for (int i = week + 1; i <= 5; i++)
                     {
                         result.Add(0);
                     }
@@ -217,9 +213,9 @@ namespace MyShop.BUS
 
                 result.Add(totalPrice);
 
-                if (weekCount < 5 && week == weekCount) // if there are less than 5 weeks in the month
+                if (weekCount < 5 && week == weekCount)
                 {
-                    for (int i = week + 1; i <= 5; i++) // add 0 to the remaining weeks
+                    for (int i = week + 1; i <= 5; i++)
                     {
                         result.Add(0);
                     }
@@ -265,7 +261,6 @@ namespace MyShop.BUS
                 {
                     if (order.CreateAt.Year == year)
                     {
-                        // này nguy hiểm :))) nhưng kệ 
                         prices.Add((decimal)order.ProfitTotal);
                     }
                 }
@@ -325,7 +320,6 @@ namespace MyShop.BUS
                 {
                     if (order.CreateAt.Date == day)
                     {
-                        // này nguy hiểm :))) nhưng kệ 
                         prices.Add((decimal)order.FinalTotal);
                     }
                 }
@@ -349,7 +343,6 @@ namespace MyShop.BUS
                 {
                     if (order.CreateAt.Date == day)
                     {
-                        // này nguy hiểm :))) nhưng kệ 
                         prices.Add((decimal)order.ProfitTotal);
                     }
                 }
