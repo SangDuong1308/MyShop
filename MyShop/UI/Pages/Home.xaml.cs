@@ -254,23 +254,30 @@ namespace MyShop.UI.Pages
         {
             string filename = "";
 
-
             var screen = new OpenFileDialog();
             screen.Filter = "Files|*.xlsx; *.csv;";
             if (screen.ShowDialog() == true)
             {
-                filename = screen.FileName;
-
-                var sheetBUS = new SheetBUS();
-                var productBUS = new ProductBUS();
-
-                var products = sheetBUS.ReadExcelFile(filename);
-
-                foreach (var product in products)
+                try
                 {
-                    productBUS.saveProduct(product);
+                    filename = screen.FileName;
+
+                    var sheetBUS = new SheetBUS();
+                    var productBUS = new ProductBUS();
+
+                    var products = sheetBUS.ReadExcelFile(filename);
+
+                    foreach (var product in products)
+                    {
+                        productBUS.saveProduct(product);
+                    }
+
+                    MessageBox.Show("Product has been added", "Notification");
                 }
-                MessageBox.Show("Product has been added", "Notification");
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error has occurred: {ex.Message}", "Notification");
+                }
             }
             else
             {

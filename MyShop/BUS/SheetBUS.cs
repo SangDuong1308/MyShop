@@ -19,7 +19,8 @@ namespace MyShop.BUS
             Des,
             Price,
             CatID,
-            Quantity
+            Quantity,
+            ImagePath,
         }
 
         public List<ProductDTO> ReadExcelFile(string filePath)
@@ -67,6 +68,14 @@ namespace MyShop.BUS
                         {
                             productDTO.ProName = cellValue;
                         }
+                        if (columnIndex == (int)Product.Des)
+                        {
+                            productDTO.Des = cellValue;
+                        }
+                        if (columnIndex == (int)Product.Price)
+                        {
+                            productDTO.Price = Decimal.Parse(cellValue);
+                        }
                         if (columnIndex == (int)Product.CatID)
                         {
                             productDTO.CatID = int.Parse(cellValue);
@@ -75,13 +84,9 @@ namespace MyShop.BUS
                         {
                             productDTO.Quantity = int.Parse(cellValue);
                         }
-                        if (columnIndex == (int)Product.Des)
+                        if (columnIndex == (int)Product.ImagePath)
                         {
-                            productDTO.Des = cellValue;
-                        }
-                        if (columnIndex == (int)Product.Price)
-                        {
-                            productDTO.Price = Decimal.Parse(cellValue);
+                            productDTO.ImagePath = cellValue;
                         }
                         columnIndex++;
                     }

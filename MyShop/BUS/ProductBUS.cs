@@ -25,9 +25,6 @@ namespace MyShop.BUS
                 string keyword = "", Decimal? startPrice = null, Decimal? endPrice = null)
         {
             var origin = await _productDAO.getAll();
-
-            // TODO: nên handle việc ProName bị null ở đây .
-            // 
             var list = origin
                 .Where((item) =>
                     {

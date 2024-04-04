@@ -103,11 +103,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Assets\Script\" />
     <Folder Include="Assets\Sheets\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\Images\add_image.png" />
     <Resource Include="Assets\Images\ArchLogo.png" />
     <Resource Include="Assets\Images\back-image.jpg" />
     <Resource Include="Assets\Images\backImage.jpg" />
@@ -161,20 +161,9 @@
     <Resource Include="Assets\Images\books\coffeemug-luv2code-1022.png" />
     <Resource Include="Assets\Images\books\coffeemug-luv2code-1023.png" />
     <Resource Include="Assets\Images\books\coffeemug-luv2code-1024.png" />
-    <Resource Include="Assets\Images\close-icon.png" />
     <Resource Include="Assets\Images\fullname-icon.png" />
-    <Resource Include="Assets\Images\ic-first.png" />
-    <Resource Include="Assets\Images\ic-last.png" />
-    <Resource Include="Assets\Images\ic-next.png" />
-    <Resource Include="Assets\Images\ic-prev.png" />
     <Resource Include="Assets\Images\info-16.png" />
-    <Resource Include="Assets\Images\item-bg.jpg" />
-    <Resource Include="Assets\Images\item1-bg.jpg" />
-    <Resource Include="Assets\Images\item2-bg.jpg" />
     <Resource Include="Assets\Images\key-icon.png" />
-    <Resource Include="Assets\Images\logo.png" />
-    <Resource Include="Assets\Images\main-bg.png" />
-    <Resource Include="Assets\Images\minimize-icon.png" />
     <Resource Include="Assets\Images\Paperbacks.png" />
     <Resource Include="Assets\Images\placeholder.png" />
     <Resource Include="Assets\Images\user-3-16.png" />
