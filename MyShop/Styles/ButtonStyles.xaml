@@ -150,32 +150,29 @@
         </Setter>
     </Style>
 
-    <!--Logout Button-->
-    <Style x:Key="logoutButton" TargetType="Button">
-        <!--Normal button style-->
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="Margin" Value="-5,0,0,5"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{StaticResource plainTextColor3}"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
+    <!--MyButtonStyle-->
+    <Style x:Key="syncbutton" TargetType="Button">
+        <Setter Property="Background" Value="#773DFF" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontFamily" Value="Montserrat" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="RadioButton">
+                <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}"
-                            BorderThickness="4,0,0,0"
-                            BorderBrush="{TemplateBinding BorderBrush}">
-                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <!--Button Style on hover-->
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Margin" Value="0,0,0,5"/>
-                <Setter Property="Background" Value="{StaticResource panelOverColor}"/>
-                <Setter Property="Foreground" Value="{StaticResource titleColor3}"/>
-                <Setter Property="BorderBrush" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
+                <Setter Property="Background" Value="#836EFB"/>
             </Trigger>
         </Style.Triggers>
     </Style>

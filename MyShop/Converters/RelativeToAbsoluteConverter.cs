@@ -13,7 +13,7 @@ namespace MyShop.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             string relative = (string)value;
-            string folder = AppDomain.CurrentDomain.BaseDirectory;
+            var folder = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug\\net8.0-windows", "");
             string absolute = $"{folder}{relative}";
             return absolute;
         }

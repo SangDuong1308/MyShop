@@ -161,7 +161,6 @@ namespace MyShop.UI.Pages
             {
                 _currentPage--;
                 updateDataSource(_currentPage, _currentKey, _currentCurrency, _currentStartPrice, _currentEndPrice);
-                //updatePagingInfo();
             }
         }
 
@@ -242,7 +241,7 @@ namespace MyShop.UI.Pages
             var product = _products[i];
             if (product != null)
             {
-                //_pageNavigation.NavigationService.Navigate(new ProductDetail(this, product, _pageNavigation, _loadingProgressBar));
+                _pageNavigation.NavigationService.Navigate(new ProductDetail(this, product, _pageNavigation, _loadingProgressBar));
             }
         }
 

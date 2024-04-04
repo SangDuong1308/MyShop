@@ -122,7 +122,7 @@ namespace MyShop.DAO
         public int insertShopOrder(ShopOrderDTO shopOrderDTO)
         {
             // insert SQL
-            string sql = "insert into shop_order(CusID, CreateAt)" +
+            string sql = "insert into shopOrder(CusID, CreateAt)" +
             "values(@CusID, @CreateAt)";
             var command = new SqlCommand(sql, db.connection);
 
@@ -133,7 +133,7 @@ namespace MyShop.DAO
 
             // select SQL
             int id = -1;
-            string sql1 = "SELECT TOP 1 OrderID FROM shop_order ORDER BY OrderID DESC ";
+            string sql1 = "SELECT TOP 1 OrderID FROM shopOrder ORDER BY OrderID DESC ";
 
             var command1 = new SqlCommand(sql1, db.connection);
 
@@ -174,7 +174,7 @@ namespace MyShop.DAO
 
         public void updateShopOrder(ShopOrderDTO shopOrder)
         {
-            string sql = "update shop_order " +
+            string sql = "update shopOrder " +
                 "set CusID =  @CusID, CreateAt = @CreateAt, FinalTotal = @FinalTotal, ProfitTotal = @ProfitTotal " +
                 "where OrderID = @OrderID";
             var command = new SqlCommand(sql, db.connection);
@@ -194,7 +194,7 @@ namespace MyShop.DAO
 
             await Task.Run(() =>
             {
-                string sql = "select OrderID, CusID, CreateAt, FinalTotal, ProfitTotal from shop_order where FinalTotal > 0";
+                string sql = "select OrderID, CusID, CreateAt, FinalTotal, ProfitTotal from shopOrder where FinalTotal > 0";
 
                 var command = new SqlCommand(sql, db.connection);
 
@@ -226,7 +226,7 @@ namespace MyShop.DAO
         {
             int total = 0;
             string sql = $"""
-                select count(*) as sum from shop_order
+                select count(*) as sum from shopOrder
                 """;
 
             var command = new SqlCommand(sql, db.connection);
@@ -291,7 +291,7 @@ namespace MyShop.DAO
             }
             // Xóa ở bảng shop_order
             string sql = $"""
-                delete shop_order 
+                delete shopOrder 
                 where OrderID = {id}
                 """;
 

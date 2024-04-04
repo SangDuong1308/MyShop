@@ -79,6 +79,7 @@
     <None Remove="Assets\Images\main-bg.png" />
     <None Remove="Assets\Images\minimize-icon.png" />
     <None Remove="Assets\Images\Paperbacks.png" />
+    <None Remove="Assets\Images\placeholder.png" />
     <None Remove="Assets\Images\user-3-16.png" />
     <None Remove="Assets\Images\user-icon.png" />
   </ItemGroup>
@@ -175,6 +176,7 @@
     <Resource Include="Assets\Images\main-bg.png" />
     <Resource Include="Assets\Images\minimize-icon.png" />
     <Resource Include="Assets\Images\Paperbacks.png" />
+    <Resource Include="Assets\Images\placeholder.png" />
     <Resource Include="Assets\Images\user-3-16.png" />
     <Resource Include="Assets\Images\user-icon.png" />
   </ItemGroup>

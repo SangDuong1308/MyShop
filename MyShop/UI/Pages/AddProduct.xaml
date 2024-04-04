@@ -25,30 +25,27 @@
 
         <Button
                     Name="BackButton"
-                    Width="85"
-                    Height="30"
-                    Style="{StaticResource MyButtonStyle}"
-                    BorderThickness="0.5"
-                    BorderBrush="Orange"
+                    Width="90"
+                    Height="40"
+                    Style="{StaticResource syncbutton}"
                     HorizontalAlignment="Left"
-                    Margin="20,10,0,0"
+                    Margin="50,10,0,0"
                     Click="BackButton_Click">
             <StackPanel Orientation="Horizontal">
-                <fa:IconImage  Name="CatIcon"
+                <fa:IconImage   Name="CatIcon"
                                 Width="11"
                                 Height="11"
                                 Margin="0, 0, 8, 0"
                                 RenderOptions.BitmapScalingMode="HighQuality"
                                 Icon="Backward"
-                                Foreground="#8B4000"/>
-                <TextBlock  FontWeight="Bold"
-                            Foreground="#8B4000">Back</TextBlock>
+                                Foreground="White"/>
+                <TextBlock Foreground="White">Back</TextBlock>
             </StackPanel>
         </Button>
         <Border   Grid.Row="1"
                   Grid.Column="1"
                   Background="#60ffffff"
-                  Margin="20,10,20,0"
+                  Margin="50,10,50,0"
                   CornerRadius="10">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -183,11 +180,10 @@
         </Border>
 
         <Border Grid.Row="2"
-          Grid.Column="1"
-          Background="#60ffffff"
-          Margin="20,20,20,0"
-            CornerRadius="10"
-          >
+                Grid.Column="1"
+                Background="#60ffffff"
+                Margin="50,20,50,0"
+                CornerRadius="10">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1.5*"/>
@@ -227,6 +223,7 @@
                                     TextAlignment="Left"
                                     TextWrapping="Wrap"
                                     Width="270"
+                                    FontFamily="Montserrat"
                                     x:Name="DesTermTextBox">
                             </TextBox>
                             <TextBlock IsHitTestVisible="False" Text="Input product description" 
@@ -322,14 +319,14 @@
                                 Height="35"
                                 Width="50"
                                 Click="AddImageButton_Click"
-                                Style="{StaticResource MyButtonStyle}">
+                                Style="{StaticResource syncbutton}">
                           <fa:IconImage HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         Width="20"
                                         Height="20"
                                         RenderOptions.BitmapScalingMode="HighQuality"
                                         Icon="Image"
-                                        Foreground="DarkRed"/>
+                                        Foreground="White"/>
                         </Button>
                         <Image  Name="AddedImage"
                                 VerticalAlignment="Top"
@@ -350,12 +347,10 @@
         <Button Name="SaveProduct"
                 Grid.Row="3"
                 Width="120"
-                Height="30"
-                Style="{StaticResource MyButtonStyle}"
-                BorderThickness="0.5"
-                BorderBrush="Red"
+                Height="40"
+                Style="{StaticResource syncbutton}"
                 HorizontalAlignment="Right"
-                Margin="0,0,20,0"
+                Margin="0,0,50,0"
                 Click="SaveProduct_Click">
             <StackPanel
             Orientation="Horizontal">
@@ -364,9 +359,8 @@
                                 Margin="0, 0, 8, 0"
                                 RenderOptions.BitmapScalingMode="HighQuality"
                                 Icon="Save"
-                                Foreground="DarkRed"/>
-                <TextBlock  FontWeight="Medium"
-                            Foreground="DarkRed">Save</TextBlock>
+                                Foreground="White"/>
+                <TextBlock Foreground="White">Save</TextBlock>
             </StackPanel>
         </Button>
     </Grid>

@@ -62,9 +62,9 @@ namespace MyShop.UI
         const int Stock = 1;
         const int Customers = 2;
         const int Categories = 3;
-        const int Promotion = 4;
-        const int Orders = 5;
-        const int Report = 6;
+        //const int Promotion = 3;
+        const int Orders = 4;
+        const int Report = 5;
         private int _currentPage = 0;
 
         ObservableCollection<Item> Items = null;
@@ -93,11 +93,11 @@ namespace MyShop.UI
                     FontIcon = "Tag",
                     ItemName = "Categories"
                 },
-                new Item()
-                {
-                    FontIcon = "Gift",
-                    ItemName = "Promotion",
-                },
+                //new Item()
+                //{
+                //    FontIcon = "Gift",
+                //    ItemName = "Promotion",
+                //},
                 new Item()
                 {
                     FontIcon = "Truck",
@@ -150,17 +150,17 @@ namespace MyShop.UI
 
             if (selectedIndex == Categories)
             {
-               
+                pageNavigation.NavigationService.Navigate(new Category(pageNavigation, loadingProgressBar));
             }
 
-            if (selectedIndex == Promotion)
-            {
+            //if (selectedIndex == Promotion)
+            //{
                 
-            }
+            //}
 
             if (selectedIndex == Orders)
             {
-                
+                pageNavigation.NavigationService.Navigate(new Order(pageNavigation, loadingProgressBar));
             }
             
             if (selectedIndex == Report)

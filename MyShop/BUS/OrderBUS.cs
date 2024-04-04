@@ -20,13 +20,10 @@ namespace MyShop.BUS
         {
             _orderDAO = new OrderDAO();
         }
-        public Tuple<List<OrderDTO>, int> findOderBySearch(int userID,int currentPage = 1, int rowsPerPage = 6,
+        public Tuple<List<OrderDTO>, int> findOderBySearch(int userID, int currentPage = 1, int rowsPerPage = 6,
              string keyword = "", DateTime? startDate = null, DateTime? endDate = null)
         {
             var origin = _orderDAO.getOrders(userID);
-
-            // TODO: nên handle việc ProName bị null ở đây .
-            // 
             var list = origin
        .Where((item) =>
        {
@@ -53,12 +50,12 @@ namespace MyShop.BUS
 
         public bool createUser(int proID, int userID, string address, DateTime orderDate, DateTime deliveryDate)
         {
-            return _orderDAO.CreateOrder( proID,  userID,  address,  orderDate,  deliveryDate);
+            return _orderDAO.CreateOrder(proID, userID, address, orderDate, deliveryDate);
         }
-/*        public List<OrderDTO>(int userID)
-        {
-            return OrderDAO.GetOrders(userID);
-        }*/
+        /*        public List<OrderDTO>(int userID)
+                {
+                    return OrderDAO.GetOrders(userID);
+                }*/
         public OrderDTO GetOne(int data)
         {
             return _orderDAO.GetOne(data);

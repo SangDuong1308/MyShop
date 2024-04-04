@@ -30,7 +30,7 @@ namespace MyShop.DAO
             {
                 CategoryDTO category = new CategoryDTO();
                 category.CatID = (int)reader["CatID"];
-                category.CatName = reader["CatName"] == DBNull.Value ? "Lỗi tên thể loại" : (string?)reader["CatName"];
+                category.CatName = reader["CatName"] == DBNull.Value ? "Error category name!" : (string?)reader["CatName"];
                 category.CatIcon = (string)reader["CatIcon"];
                 category.CatDescription = (string)reader["CatDescription"];
 
@@ -59,7 +59,7 @@ namespace MyShop.DAO
                 CategoryDTO category = new CategoryDTO();
 
                 category.CatID = (int)reader["CatID"];
-                category.CatName = reader["CatName"] == DBNull.Value ? "Lỗi tên thể loại" : (string?)reader["CatName"];
+                category.CatName = reader["CatName"] == DBNull.Value ? "Error category name!" : (string?)reader["CatName"];
                 category.CatIcon = (string)reader["CatIcon"];
                 category.CatDescription = (string)reader["CatDescription"];
 
