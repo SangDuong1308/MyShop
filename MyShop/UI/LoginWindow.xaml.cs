@@ -54,7 +54,7 @@ namespace MyShop.UI
 
             if (handleApiUser != null)
             {
-                //MessageBox.Show("Nice try lil king");
+                //MessageBox.Show("Nice try lil nig");
                 bool remember = RememberMeCheckBox.IsChecked == true;
                 Properties.Settings.Default.IdUser = handleApiUser.UserID;
                 Properties.Settings.Default.Save();
